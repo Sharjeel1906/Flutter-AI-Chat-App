@@ -32,8 +32,6 @@ class HomePage extends StatelessWidget {
     final bool isDesktop = w > 600;
     bool isConnected = context.watch<InternetProvider>().isConnected;
     final chat = context.watch<ChatProvider>();
-    int? id = chat.session_id;
-    int tempIdCounter = 0; // in ChatProvider or global
     final authProvider = context.watch<Login_Register_Provider>();
     final bool isloggedin = authProvider.is_loggedin;
 

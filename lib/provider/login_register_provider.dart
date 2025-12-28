@@ -18,8 +18,9 @@ class Login_Register_Provider extends ChangeNotifier {
       Dio dio = await ApiClient.getClient();
 
       var response = await dio.post(
-        "http://192.168.100.11:5000/login",
+        //"http://192.168.100.11:5000/login",
         //"http://127.0.0.1:5000/login",
+        "https://aichatapp.pythonanywhere.com/login",
         data: {"email": email, "password": password},
       );
       is_loading = false;
@@ -48,8 +49,9 @@ class Login_Register_Provider extends ChangeNotifier {
       Dio dio = await ApiClient.getClient();
 
       final response = await dio.post(
-        'http://192.168.100.11:5000/logout',
+       // 'http://192.168.100.11:5000/logout',
         //"http://127.0.0.1:5000/logout",
+        "https://aichatapp.pythonanywhere.com/logout",
         options: Options(
           headers: {
             "Content-Type": "application/json",
@@ -81,7 +83,8 @@ class Login_Register_Provider extends ChangeNotifier {
     try {
       is_loading = true;
       notifyListeners();
-      var url = Uri.parse('http://192.168.100.11:5000/register');
+      //var url = Uri.parse('http://192.168.100.11:5000/register');
+      var url = Uri.parse('https://aichatapp.pythonanywhere.com/register');
       //var url = Uri.parse("http://127.0.0.1:5000/register",);
       var response = await http.post(
         url,

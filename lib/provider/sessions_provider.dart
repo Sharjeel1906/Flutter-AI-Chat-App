@@ -22,8 +22,9 @@ class SessionsProvider extends ChangeNotifier {
 
     try {
       Dio dio = await ApiClient.getClient();
-      final response = await dio.get("http://192.168.100.11:5000/sessions");
+      //final response = await dio.get("http://192.168.100.11:5000/sessions");
      // final response = await dio.get("http://127.0.0.1:5000/sessions");
+       final response = await dio.get("https://aichatapp.pythonanywhere.com/sessions");
 
       if (response.statusCode == 200) {
         sessions = List<Map<String, dynamic>>.from(response.data);

@@ -18,7 +18,9 @@ class ChatProvider extends ChangeNotifier {
       final dio = await ApiClient.getClient();
 
       final response = await dio.post(
-        "http://192.168.100.11:5000/chat",
+        //"http://192.168.100.11:5000/chat",
+        "https://aichatapp.pythonanywhere.com/chat",
+
         data: {
           "message": message,
           if (_sessionId != null) "session_id": _sessionId,
@@ -52,8 +54,10 @@ class ChatProvider extends ChangeNotifier {
 
       final dio = await ApiClient.getClient();
       final response = await dio.get(
-        "http://192.168.100.11:5000/get_sessions_messages/$id",
+        //"http://192.168.100.11:5000/get_sessions_messages/$id",
         //"http://127.0.0.1:5000/get_sessions_messages/$id",
+        "https://aichatapp.pythonanywhere.com/get_sessions_messages/$id",
+
       );
 
       final res = response.data;

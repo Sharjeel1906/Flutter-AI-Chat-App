@@ -16,8 +16,9 @@ class SelectionProvider extends ChangeNotifier {
     try {
       final dio = await ApiClient.getClient(); // Dio with CookieManager
       final response = await dio.get(
-        "http://192.168.100.11:5000/delete_msg/$id",
+        //"http://192.168.100.11:5000/delete_msg/$id",
         //  "http://127.0.0.1:5000/delete_msg/$id"
+        "https://aichatapp.pythonanywhere.com/delete_msg/$id",
       );
       if (response.statusCode == 200) {
         messages.removeWhere((msg) => msg["id"] == id);
@@ -34,8 +35,10 @@ class SelectionProvider extends ChangeNotifier {
     try {
       final dio = await ApiClient.getClient();
       final response = await dio.get(
-        "http://192.168.100.11:5000/delete_session/$id",
+        //"http://192.168.100.11:5000/delete_session/$id",
         //  "http://127.0.0.1:5000/delete_session/$id"
+        "https://aichatapp.pythonanywhere.com/delete_session/$id",
+
       );
       if (response.statusCode == 200) {
         sessions.removeWhere((session) => session['id'] == id);
